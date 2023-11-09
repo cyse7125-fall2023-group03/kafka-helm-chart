@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zookeeper
+  name: {{ .Release.Name }}-zookeeper
+  namespace: kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+        - image: {{.Values.kafkaImage.image}}
+          name: zookeeper
+          env:
+            - name: ZOO_ENABLE_AUTH
+              value: "yes"
+            - name: ALLOW_ANONYMOUS_LOGIN
+              value: "yes" 
+          imagePullPolicy: {{.Values.kafkaImage.pullPolicy}}
+          ports:
+            - containerPort: {{.Values.port.zookeeperPort}}

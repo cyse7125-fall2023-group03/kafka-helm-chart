@@ -1,0 +1,8 @@
+kafkaImage:
+  image: bitnami/zookeeper
+  pullPolicy: IfNotPresent
+
+port:
+  kafkaPort: 9092
+  zookeeperPort: 2181
+
