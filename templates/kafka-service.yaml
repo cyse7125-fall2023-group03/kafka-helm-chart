@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kafka-broker
+  name: {{ .Release.Name }}-kafka-service
+  namespace: kafka
+spec:
+  ports:
+  - port: {{.Values.port.kafkaPort}}
+  selector:
+    app: kafka-broker

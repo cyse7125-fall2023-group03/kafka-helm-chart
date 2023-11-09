@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zookeeper-service
+  name: {{ .Release.Name }}-zookeeper-service
+  namespace: kafka
+spec:
+  type: NodePort
+  ports:
+    - name: zookeeper-port
+      port: {{.Values.port.zookeeperPort}}
+      nodePort: 30181
+      targetPort: {{.Values.port.zookeeperPort}}
+  selector:
+    app: zookeeper
