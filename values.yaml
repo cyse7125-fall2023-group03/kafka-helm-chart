@@ -1,5 +1,6 @@
 kafkaImage:
-  image: bitnami/zookeeper
+  imagekafka: bitnami/kafka
+  imagezookeeper: bitnami/zookeeper
   pullPolicy: IfNotPresent
 
 port:
