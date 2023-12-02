@@ -43,7 +43,7 @@ pipeline {
 
     post {
         success {
-            echo 'Deployment successful!'
+            echo 'Deployment successfull!'
         }
     }
 }
