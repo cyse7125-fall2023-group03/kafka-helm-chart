@@ -4,3 +4,4 @@ metadata:
   name: "kafka"
   labels:
     name: "kafka"
+    istio-injection: enabled
